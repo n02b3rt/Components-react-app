@@ -1,5 +1,6 @@
-import Expenses from "./components/Expenses";
-function App() {
+import React from "react";
+import Expenses from "./components/Expenses/Expenses";
+const App = () => {
   const expenses = [
     {
       id: "e1",
@@ -23,9 +24,25 @@ function App() {
   ];
   return (
     <div>
-      <Expenses items={expenses}/>
-      <p>chuj</p>
+      <h2>Let's get started</h2>
+      <Expenses items={expenses} />
     </div>
+    /* 
+    If we were not using JSX then this code:
+    <div>
+      <h2>Let's get started</h2>
+      <Expenses items={expenses}/>
+    </div>
+    It would look like this:
+    React.createElement(
+      "div",
+      "",
+      React.createElement("h2", {}, "Let's get started<"),
+      React.createElement(Expenses, {items: expenses})
+    )
+    Therefore, it is important to remember that there must always be a wprapper for other elements because the returned element is an array.
+    */
+    
   );
 }
 
