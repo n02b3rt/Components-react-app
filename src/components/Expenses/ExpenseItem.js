@@ -6,7 +6,7 @@ import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
 const ExpenseItem = (props) => {
   const [title, setTitle] = useState(props.expenses.title);
-  // przyjmuje zmienną, a druga wartość jest to funkcja wykonująca
+  // takes a variable and the second value is the function that performs the
 
   // let title = props.expenses.title;
   // Dobrą praktyką jest to że piszemy slowo Handler - jeśli funkcja jest wywoływana przez jakiś event aby łatwiej bylo czytac kod
