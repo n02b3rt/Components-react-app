@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   // single - more common
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
@@ -64,7 +64,7 @@ const ExpenseForm = () => {
   //     });
   //   };
 
-const submitHandler =(event)=>{
+const onSaveExpenseData =(event)=>{
     // Javascript function that prevents the page from refreshing when a Submit button is used in a form
     event.preventDefault();
 
@@ -73,8 +73,8 @@ const submitHandler =(event)=>{
         amount:enteredAmount,
         date: new Date(enteredDate)
     };
-
-    console.log(expenseData);
+    // By using this function we pass our object to the component (ExpenseForm) as a function parameter. Then the parameter of the function props.onSaveExpenseData(expenseData) is received as a parameter of the component ExpenseForm, and finally it is passed to the function onSaveExpenseDataHandler also as a parameter. on which we perform operations in the component (ExpenseForm)
+    props.onSaveExpenseData(expenseData);
     // the data is already stored, so we use the following functions to clear the values in the inputs so that they are ready to accept further data
     setEnteredTitle('');
     setEnteredAmount('');
@@ -82,7 +82,7 @@ const submitHandler =(event)=>{
 };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={onSaveExpenseData}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>

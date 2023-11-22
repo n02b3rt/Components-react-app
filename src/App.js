@@ -24,9 +24,14 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
+// the comments for the transmission of data from the components are contained in the NewExpense and ExpenseForm components
+  const addExpenseHandler = expense =>{
+    console.log('In App.js');
+    console.log(expense);
+  };
   return (
     <div>
-      <NewExpense/>
+      <NewExpense onAddExpense={addExpenseHandler}/>
       <Expenses items={expenses} />
     </div>
     /* 
