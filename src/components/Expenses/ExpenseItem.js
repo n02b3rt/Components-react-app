@@ -9,7 +9,7 @@ const ExpenseItem = (props) => {
   // takes a variable and the second value is the function that performs the
 
   // let title = props.expenses.title;
-  // Dobrą praktyką jest to że piszemy slowo Handler - jeśli funkcja jest wywoływana przez jakiś event aby łatwiej bylo czytac kod
+  // It is good practice to write the word Handler if a function is called by an event in order to make the code easier to read.
   const clickHandler = () =>{
     setTitle('Updated!');
     console.log(title);
@@ -22,7 +22,7 @@ const ExpenseItem = (props) => {
         <h2>{title}</h2>
         <div className="expense-item__price">${props.expenses.amount}</div>
       </div>
-      {/* nie wolno wpisywać fukcji tak: funkcja() ponieważ te nawiasy sprawiają że fukncja zostaje wywołana jeśli nie damy tych nawiasów to tworzymy wskaźnik na fukcję która zadziała jak klikniemy na przycisk */}
+      {/* do not write a function like this: function() because these parentheses make the function called if we do not give these parentheses, we create a pointer to a function that will work when we click on the button*/}
       <button onClick={clickHandler}> Change Title</button>
     </Card>
   );
