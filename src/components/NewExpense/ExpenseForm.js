@@ -17,6 +17,7 @@ const ExpenseForm = () => {
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
   };
+  
 // use of shared functions
 //   const inputChangeHandler = (identifier, value) => {
 //     if (identifier === "title") {
