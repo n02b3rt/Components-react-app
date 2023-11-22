@@ -17,7 +17,7 @@ const ExpenseForm = () => {
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
   };
-  
+
 // use of shared functions
 //   const inputChangeHandler = (identifier, value) => {
 //     if (identifier === "title") {
@@ -64,13 +64,32 @@ const ExpenseForm = () => {
   //     });
   //   };
 
+const submitHandler =(event)=>{
+    // Javascript function that prevents the page from refreshing when a Submit button is used in a form
+    event.preventDefault();
+
+    const expenseData = {
+        title:enteredTitle,
+        amount:enteredAmount,
+        date: new Date(enteredDate)
+    };
+
+    console.log(expenseData);
+    // the data is already stored, so we use the following functions to clear the values in the inputs so that they are ready to accept further data
+    setEnteredTitle('');
+    setEnteredAmount('');
+    setEnteredDate('');
+};
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
           {/* Thanks to this notation, the change will not occur at the start of the programme as usual with a normal function call, but will occur when the change occurs */}
           <input type="text" 
+        //   using value, we can clear the input after the form has been submitted
+          value={enteredTitle}
           /* use of shared functions */
         //   onChange={event => inputChangeHandler('title', event.target.value)}
             onChange={titleChangeHandler}
@@ -80,6 +99,7 @@ const ExpenseForm = () => {
           <label>Amount</label>
           <input
             type="number"
+            value={enteredAmount}
             min="0.01"
             step="0.01"
             // use of shared functions
@@ -91,6 +111,7 @@ const ExpenseForm = () => {
           <label>Date</label>
           <input
             type="date"
+            value={enteredDate}
             min="2019-01-01"
             step="2023-12-31"
             // use of shared functions
